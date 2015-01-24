@@ -215,7 +215,7 @@ if __name__ == "__main__":
 
     w = Wizards()
     w.welcome()
-    time.sleep(0)
+    time.sleep(3)
     w.clear()
     command = w.main_menu()
     print(command)
