@@ -6,6 +6,14 @@ class Wizards(object):
     def __init__(self):
         self.__state__ = {}
 
+        self.__levels = {
+                        1: {'XP': 10, 'spells': ['fireball', 'lightning']},
+                        2: {'XP': 20, 'spells': []},
+                        3: {'XP': 80, 'spells': []},
+                        4: {'XP': 200, 'spells': []},
+                        5: {'XP': 1000, 'spells': []}
+                    }
+
         self.__spells = {
                     'pew': 1,
                     'fire': 2,
@@ -40,9 +48,9 @@ class Wizards(object):
                     'hobgoblin': {
                         'name': "Hob Goblin",
                         'damage': 1.5,
-                        'HP': 10,
+                        'HP': 15,
                         'XP': 10,
-                        'level': 1
+                        'level': 2
                     },
                     'dragon': {
                         'name': "Dragon",
@@ -87,7 +95,7 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
         self.__state__['HP'] = 10
         self.__state__['XP'] = 0
         self.__state__['level'] = 1
-        self.__state__['spells'] = [ 'pew', 'fireball' ]
+        self.__state__['spells'] = [ 'pew', 'fire' ]
 
     def select_enemy(self):
         enemy = random.choice(self.__enemies.keys())
@@ -105,6 +113,14 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
                 self.__state__['XP'] += self.__state__['gained_xp']
                 self.render()
                 time.sleep(3)
+                if self.__state__['XP'] >= self.__levels[self.__state__['level']]['XP']:
+                    for spell in self.__levels[self.__state__['level']]['spells']:
+                        self.__state__['spells'].append(spell)
+                    self.__state__['level'] += 1
+                    self.__state__['mode'] = "level_up"
+                    self.render()
+                    time.sleep(3)
+
             elif outcome == "loss":
                 self.render()
                 self.main_menu()
@@ -164,7 +180,7 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             print("Hit points: {0}".format(self.__state__['HP']))
             print("{0} hit points: {1}".format(enemy,
                 self.__state__['enemy_hp']))
-            print("Experience: {0}".format(self.__state__['XP']))
+            print("Level: {0}\t \t Experience points: {1}".format(self.__state__['level'], self.__state__['XP']))
             #if 'damage_received' in self.__state__.keys():
                 #print(self.__state__['damage_received'])
             print("Cast:> ")
@@ -179,6 +195,11 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             self.clear()
             enemy = self.__state__['enemy']
             print("You were killed by a {0}!!").format(enemy)
+
+        elif self.__state__['mode'] == 'level_up':
+            print("You leveled up!!")
+            print("You are now level {0}!!").format(self.__state__['level'])
+
 
     def clear(self):
         os.system('clear')
