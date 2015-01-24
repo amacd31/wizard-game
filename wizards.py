@@ -101,6 +101,8 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             if outcome == "win":
                 enemy = self.select_enemy()
                 outcome = self.fight(enemy)
+                self.__state__['gained_xp'] = self.__enemies[enemy]['XP']
+                self.__state__['XP'] += self.__state__['gained_xp']
                 self.render()
                 time.sleep(3)
             elif outcome == "loss":
@@ -162,6 +164,7 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             print("Hit points: {0}".format(self.__state__['HP']))
             print("{0} hit points: {1}".format(enemy,
                 self.__state__['enemy_hp']))
+            print("Experience: {0}".format(self.__state__['XP']))
             #if 'damage_received' in self.__state__.keys():
                 #print(self.__state__['damage_received'])
             print("Cast:> ")
@@ -170,6 +173,7 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             self.clear()
             enemy = self.__state__['enemy']
             print("You have killed a {0}!").format(enemy)
+            print("You gained {0} XP!").format(self.__state__['gained_xp'])
 
         elif self.__state__['mode'] == 'loss':
             self.clear()
