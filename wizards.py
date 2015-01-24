@@ -198,7 +198,10 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
 
         elif self.__state__['mode'] == 'level_up':
             print("You leveled up!!")
-            print("You are now level {0}!!").format(self.__state__['level'])
+            print("You are now level {0}!").format(self.__state__['level'])
+            print("You can now cast the following spells:")
+            for spell in  self.__levels[self.__state__['level'] - 1]['spells']:
+                print("\t{0}".format(spell))
 
 
     def clear(self):
