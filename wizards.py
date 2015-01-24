@@ -127,12 +127,13 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             self.__state__['damage_received'] = max(0, damage_received)
             self.__state__['HP'] -= damage_received
 
-            if self.__state__['enemy_hp'] <= 0:
-                self.__state__['mode'] = 'win'
-                return "win"
-            elif self.__state__['HP'] <= 0:
-                self.__state__['mode'] = 'loss'
-                return "loss"
+            if self.__state__['enemy_hp'] <= 0 or self.__state__['HP'] <= 0:
+                if self.__state__['HP'] <= 0:
+                    self.__state__['mode'] = 'loss'
+                    return "loss"
+                if self.__state__['enemy_hp'] <= 0:
+                    self.__state__['mode'] = 'win'
+                    return "win"
 
             self.render()
 
