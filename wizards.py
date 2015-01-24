@@ -7,18 +7,20 @@ class Wizards(object):
         self.__state__ = {}
 
         self.__levels = {
-                        1: {'XP': 10, 'spells': ['fireball', 'lightning']},
-                        2: {'XP': 20, 'spells': []},
-                        3: {'XP': 80, 'spells': []},
-                        4: {'XP': 200, 'spells': []},
-                        5: {'XP': 1000, 'spells': []}
-                    }
+                1: {'HP': 10, 'XP': 10, 'spells': ['fireball', 'lightning']},
+                2: {'HP': 20, 'XP': 20, 'spells': ['fire blast', 'bolt lightning']},
+                3: {'HP': 30, 'XP': 80, 'spells': []},
+                4: {'HP': 40, 'XP': 200, 'spells': []},
+                5: {'HP': 50, 'XP': 1000, 'spells': []}
+            }
 
         self.__spells = {
                     'pew': 1,
                     'fire': 2,
                     'fireball': 10,
                     'lightning': 20,
+                    'fire blast': 25,
+                    'bolt lightning': 35,
                     'extreme lightning': 40,
                     'fireball extravaganza': 50
                 }
@@ -117,6 +119,7 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
                     for spell in self.__levels[self.__state__['level']]['spells']:
                         self.__state__['spells'].append(spell)
                     self.__state__['level'] += 1
+                    self.__state__['HP'] = self.__levels[self.__state__['level']]['HP']
                     self.__state__['mode'] = "level_up"
                     self.render()
                     time.sleep(3)
@@ -199,6 +202,7 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
         elif self.__state__['mode'] == 'level_up':
             print("You leveled up!!")
             print("You are now level {0}!").format(self.__state__['level'])
+            print("You now {0} hit points.").format(self.__state__['HP'])
             print("You can now cast the following spells:")
             for spell in  self.__levels[self.__state__['level'] - 1]['spells']:
                 print("\t{0}".format(spell))
