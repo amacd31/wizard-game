@@ -219,7 +219,6 @@ if __name__ == "__main__":
     time.sleep(3)
     w.clear()
     command = w.main_menu()
-    print(command)
 
     if command == 1:
         w.new_game()
