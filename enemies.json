@@ -9,7 +9,7 @@
     "imp": {
         "name": "Imp",
         "damage": 0.8,
-        "HP": 8,
+        "HP": 6,
         "XP": 5,
         "level": 1
     },
@@ -23,29 +23,29 @@
     "hobgoblin": {
         "name": "Hob Goblin",
         "damage": 1.5,
-        "HP": 15,
+        "HP": 25,
         "XP": 10,
         "level": 2
     },
     "skeleton": {
         "name": "Skeleton",
         "damage": 2.1,
-        "HP": 25,
+        "HP": 30,
         "XP": 25,
         "level": 3
     },
     "zombie": {
         "name": "Zombie",
         "damage": 2.5,
-        "HP": 25,
-        "XP": 28,
-        "level": 3
+        "HP": 35,
+        "XP": 38,
+        "level": 4
     },
     "dragon": {
         "name": "Dragon",
         "damage": 100,
         "HP": 1000,
         "XP": 10000,
-        "level": 30
+        "level": 5
     }
 }
