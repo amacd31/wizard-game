@@ -15,16 +15,7 @@ class Wizards(object):
                 5: {'HP': 50, 'XP': 1000, 'spells': []}
             }
 
-        self.__spells = {
-                    'pew': 1,
-                    'fire': 2,
-                    'fireball': 10,
-                    'lightning': 20,
-                    'fire blast': 25,
-                    'bolt lightning': 35,
-                    'extreme lightning': 40,
-                    'fireball extravaganza': 50
-                }
+        self.__spells = json.load(open('spells.json','r'))
 
         self.__enemies = json.load(open('enemies.json','r'))
 
