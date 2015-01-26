@@ -141,8 +141,6 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             print("{0} hit points: {1}".format(enemy,
                 self.__state__['enemy_hp']))
             print("Level: {0}\t \t Experience points: {1}".format(self.__state__['level'], self.__state__['XP']))
-            #if 'damage_received' in self.__state__.keys():
-                #print(self.__state__['damage_received'])
             print("Cast:> ")
 
         elif self.__state__['mode'] == 'win':
