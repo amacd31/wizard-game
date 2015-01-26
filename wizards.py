@@ -1,3 +1,4 @@
+import json
 import os
 import random
 import time
@@ -25,57 +26,7 @@ class Wizards(object):
                     'fireball extravaganza': 50
                 }
 
-        self.__enemies = {
-                    'goblin': {
-                        'name': "Goblin",
-                        'damage': 0.5,
-                        'HP': 5,
-                        'XP': 2,
-                        'level': 1
-                    },
-                    'imp': {
-                        'name': "Imp",
-                        'damage': 0.8,
-                        'HP': 8,
-                        'XP': 5,
-                        'level': 1
-                    },
-                    'ratman': {
-                        'name': "Ratman",
-                        'damage': 1.0,
-                        'HP': 9,
-                        'XP': 6,
-                        'level': 1
-                    },
-                    'hobgoblin': {
-                        'name': "Hob Goblin",
-                        'damage': 1.5,
-                        'HP': 15,
-                        'XP': 10,
-                        'level': 2
-                    },
-                    'skeleton': {
-                        'name': "Skeleton",
-                        'damage': 2.1,
-                        'HP': 25,
-                        'XP': 25,
-                        'level': 3
-                    },
-                    'zombie': {
-                        'name': "Zombie",
-                        'damage': 2.5,
-                        'HP': 25,
-                        'XP': 28,
-                        'level': 3
-                    },
-                    'dragon': {
-                        'name': "Dragon",
-                        'damage': 100,
-                        'HP': 1000,
-                        'XP': 10000,
-                        'level': 30
-                    }
-                }
+        self.__enemies = json.load(open('enemies.json','r'))
 
         self.options = {
                 1: "New game",
