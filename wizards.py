@@ -30,7 +30,7 @@ class Wizards(object):
                         'name': "Goblin",
                         'damage': 0.5,
                         'HP': 5,
-                        'XP': 1,
+                        'XP': 2,
                         'level': 1
                     },
                     'imp': {
@@ -53,6 +53,20 @@ class Wizards(object):
                         'HP': 15,
                         'XP': 10,
                         'level': 2
+                    },
+                    'skeleton': {
+                        'name': "Skeleton",
+                        'damage': 2.1,
+                        'HP': 25,
+                        'XP': 25,
+                        'level': 3
+                    },
+                    'zombie': {
+                        'name': "Zombie",
+                        'damage': 2.5,
+                        'HP': 25,
+                        'XP': 28,
+                        'level': 3
                     },
                     'dragon': {
                         'name': "Dragon",
