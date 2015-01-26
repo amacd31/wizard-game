@@ -64,9 +64,10 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
     def run(self):
         outcome = 'win'
         while (outcome == 'win'):
+            enemy = self.select_enemy()
+            outcome = self.fight(enemy)
+
             if outcome == "win":
-                enemy = self.select_enemy()
-                outcome = self.fight(enemy)
                 self.__state__['gained_xp'] = self.__enemies[enemy]['XP']
                 self.__state__['XP'] += self.__state__['gained_xp']
                 self.render()
