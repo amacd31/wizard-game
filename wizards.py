@@ -156,6 +156,7 @@ W        W       W   IIIIIII  ZZZZZ      AA      RRRRR  DDD    SSS
             enemy = self.__state__['enemy']
             print("You were killed by a {0}!!").format(enemy)
             print("You died a level {0} wizard with {1} experience.").format(self.__state__['level'], self.__state__['XP'])
+            print("")
 
         elif self.__state__['mode'] == 'level_up':
             print("You leveled up!!")
